@@ -11,9 +11,8 @@ public interface MemDAO {
 	
 	public void updateMethod(MemDTO dto);
 	
-	public void delectMethod(MemDTO dto);
 	
-	public MemDTO delectMethod(int num);
+	public void deleteMethod(int num);
 	
 	public MemDTO one(int num);
 	

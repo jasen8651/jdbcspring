@@ -21,4 +21,9 @@
  		update mem set name=#{name}, age=#{age}, loc=#{loc}
  		where num= #{num}
  	</update>
+ 	
+ 	<delete id="del" parameterType="int">
+ 		delete from mem where num=#{num}
+ 	
+ 	</delete>
  </mapper>

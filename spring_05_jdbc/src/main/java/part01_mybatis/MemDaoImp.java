@@ -4,10 +4,14 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class MemDaoImp implements MemDAO{
-	private SqlSessionTemplate sqlSession;
 	
+	@Autowired
+	private SqlSessionTemplate sqlSession;
 	
 	public void setSqlSession(SqlSessionTemplate sqlSession) {
 		this.sqlSession =sqlSession;
@@ -40,16 +44,11 @@ public class MemDaoImp implements MemDAO{
 	}
 
 	@Override
-	public void delectMethod(MemDTO dto) {
-		// TODO Auto-generated method stub
+	public void deleteMethod(int num ) {
+		 sqlSession.delete("mem.del", num);
 		
 	}
 
-	@Override
-	public MemDTO delectMethod(int num) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public MemDTO one(int num) {

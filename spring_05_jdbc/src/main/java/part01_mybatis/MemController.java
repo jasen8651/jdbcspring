@@ -1,5 +1,6 @@
 package part01_mybatis;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -7,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MemController {
-	
+	@Autowired
 	private MemDAO memDAO;
 	 //http://localhost:8090/myapp/list.do
 	 public MemController() {
@@ -42,6 +43,12 @@ public class MemController {
 	 @RequestMapping(value="/update.do", method=RequestMethod.POST)
 	 public String updateData(MemDTO dto) {
 		 memDAO.updateMethod(dto);
+		 return "redirect:/list.do";
+	 }
+	 
+	 @RequestMapping(value="/delete.do")
+	 public String deleteDate(int num) {
+		 memDAO.deleteMethod(num);
 		 return "redirect:/list.do";
 	 }
 }
